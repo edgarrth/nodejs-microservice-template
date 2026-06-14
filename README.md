@@ -259,11 +259,3 @@ Ver instrucciones completas en:
 ```text
 infrastructure/datasets/README.md
 ```
-
-## 16. Decisiones de diseño
-
-- Se usa PostgreSQL porque el dominio de pagos requiere persistencia transaccional, idempotencia y consistencia en estados.
-- No se incluye broker porque esta PoC se concentra en microservicio REST transaccional. Para una versión extendida se puede agregar outbox + Kafka/Redpanda para eventos `PaymentAuthorized`, `PaymentCaptured` y `PaymentRefunded`.
-- Se usa Fastify por rendimiento, bajo overhead, plugins maduros y adopción en backends empresariales Node.js.
-- Se usa TypeScript para tipado fuerte y mejor mantenibilidad.
-- Se evita lógica de negocio dentro de controladores y entidades ORM.
