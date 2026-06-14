@@ -1,0 +1,38 @@
+### Health
+GET http://localhost:3000/health
+
+### Create authorized payment
+POST http://localhost:3000/payments/v1/payments
+Content-Type: application/json
+idempotency-key: demo-payment-001
+
+{
+  "merchantId": "mrc_intercorp_001",
+  "customerId": "cus_1001",
+  "amount": 120.50,
+  "currency": "USD"
+}
+
+### Create high amount payment rejected by policy
+POST http://localhost:3000/payments/v1/payments
+Content-Type: application/json
+idempotency-key: demo-payment-002
+
+{
+  "merchantId": "mrc_intercorp_001",
+  "customerId": "cus_1002",
+  "amount": 6500,
+  "currency": "USD"
+}
+
+### List payments
+GET http://localhost:3000/payments/v1/payments?limit=20
+
+### Get payment by id
+GET http://localhost:3000/payments/v1/payments/{{paymentId}}
+
+### Capture payment
+POST http://localhost:3000/payments/v1/payments/{{paymentId}}/capture
+
+### Refund payment
+POST http://localhost:3000/payments/v1/payments/{{paymentId}}/refund
