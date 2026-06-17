@@ -1,0 +1,13 @@
+server:
+  host: 0.0.0.0
+  port: 3000
+postgres:
+  host: localhost
+  port: 5432
+  username: payments_user
+  password: payments_pass
+  database: payments_db
+  synchronize: true
+  logging: false
+payment:
+  maxAmountWithoutReview: 5000
